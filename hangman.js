@@ -866,22 +866,24 @@ const play = () => {
     // resetting the documents elements to display default values
     lives = 6;
     document.getElementById("word").innerHTML = str;
-    document.getElementById("remaining").innerHTML = 
-      `${"Guesses Remaining"} ${lives}`;
+    document.getElementById(
+      "remaining"
+    ).innerHTML = `${"Guesses Remaining"} ${lives}`;
     document.getElementById("guessed").innerHTML = "Guessed Letters: ";
     repeat = true;
   }
-}
+};
 
 // runs when the quit button is pressed
 const quit = () => {
   if (repeat === true) {
     // displays what the answer was
-    document.getElementById("word").innerHTML = 
-      `${"You lose, the word was"} ${word.toUpperCase()}`;
+    document.getElementById(
+      "word"
+    ).innerHTML = `${"You lose, the word was"} ${word.toUpperCase()}`;
     repeat = false;
   }
-}
+};
 
 // checks to see if a given letter is present in the word
 const isPresent = (letter) => {
@@ -892,7 +894,7 @@ const isPresent = (letter) => {
   }
 
   return false;
-}
+};
 
 // returns the indicies of all occurnces of a given letter
 const getIndicies = (letter) => {
@@ -904,7 +906,7 @@ const getIndicies = (letter) => {
   }
 
   return indicies;
-}
+};
 
 // finds the indicies where each letter exists in the word
 const updateWord = (letter) => {
@@ -921,7 +923,7 @@ const updateWord = (letter) => {
 
   // display the string
   document.getElementById("word").innerHTML = str;
-}
+};
 
 // checks to see if the game has ended (win or loss)
 const checkWin = () => {
@@ -936,7 +938,7 @@ const checkWin = () => {
       repeat = false;
     }
   }
-}
+};
 
 // checks to see if all the spaces are taken
 const fullString = () => {
@@ -947,7 +949,7 @@ const fullString = () => {
   }
 
   return true;
-}
+};
 
 // keyboard input
 document.addEventListener(
@@ -967,8 +969,9 @@ document.addEventListener(
         } else {
           // append to a string of guessed letters that are not in word
           guessed += letter.toUpperCase() + " ";
-          document.getElementById("guessed").innerHTML = 
-            `${"Guessed Letters:"} ${guessed}`;
+          document.getElementById(
+            "guessed"
+          ).innerHTML = `${"Guessed Letters:"} ${guessed}`;
           // decrement lives since user got a guess wrong
           lives--;
         }
@@ -978,8 +981,9 @@ document.addEventListener(
       }
     }
 
-    document.getElementById("remaining").innerHTML = 
-      `${"Guesses Remaining"} ${lives}`;
+    document.getElementById(
+      "remaining"
+    ).innerHTML = `${"Guesses Remaining"} ${lives}`;
   },
   false
 );
